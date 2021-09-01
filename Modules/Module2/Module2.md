@@ -135,23 +135,23 @@ https://www.markdownguide.org/getting-started/
 
 What does "cd" stand for?
 
- - Answer:
+ - Answer: change directory
 
 Did you get stuck at any point or become confused with your console? (yes/no) If so, what happened? How did you solve it?
 
- - Answer:
+ - Answer: Yes, i couldnt CD
 
 Did you consider searching google for other commands to run? What did you try? 
 
- - Answer:
+ - Answer: no
 
 What would you like to program? 
 
- - Answer:
+ - Answer: Computers and files
 
 Type down any class notes below this sentence:
 
-
+hello
 
 Lackluster responses may result in point deductions.
 -->
