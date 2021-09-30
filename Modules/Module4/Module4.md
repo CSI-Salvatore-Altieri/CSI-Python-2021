@@ -142,11 +142,17 @@ Evaluate the following code. Is the code written correctly? What would be the co
         print(' The Number is someNumber ')
 Expected:  The Number is 360
 
- - Answer:
+ - Answer: No, the correct code is 
+ someNumber: int = 360
+print(f"The Number is {someNumber}")
 
 Define a function that takes 2 or more string parameters and prints a single line using them as part of a functional string. The function may do anything you chose but the function name and parameter names must be representative of what they are.
 
- - Answer:
+ - Answer: 
+ myName:str = "Salvatore Altieri"
+myAge:int = 14
+myString = f"Hello {myName}! You are {myAge}"
+print(myString)
   
 
 
@@ -160,6 +166,9 @@ Which code returns the length of the string s0:
 s0 = "What is my length? Store it as a number in a variable."
 
  - Answer:
+s0 = "ehat is my length? Store its as a number integer"
+ss0 = len(s0)
+print(ss0)
 
 How do you create a substring in python?
 Create a substring of s1 containing only my name. Store it in a variable called ss1.
