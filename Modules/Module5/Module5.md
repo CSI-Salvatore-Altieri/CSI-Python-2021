@@ -81,7 +81,11 @@ print(f"Computer selected: {computerChoice}")
 Give a python example for each logic operator in the module image.
 
  - Answers:
-   - OR:
+   - OR: clovers = 7
+if (clovers > 1 and clovers < 11):
+    print("You have 2 or 8 clovers")
+else: 
+    print("You have more than 9 clovers")
    - AND: 
    - NOT: 
 
