@@ -17,7 +17,12 @@ import json
 #Convert your variables into parameters
 
 def projectileFunction(experimentalData: ExperimentalData):
-    time_s = math.sqrt((2 * experimentalData.buildingHeight) / experimentalData.gravity_ms)
+    planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
+    g_ms2 = [3.7, 8.87, 9.81, 3.711, 24.79, 10.44, 8.69, 11.15]
+
+    planet = planets.index(experimentalData.planet)
+
+    time_s = math.sqrt((2 * experimentalData.buildingHeight) / g_ms2[planet])
 
     distance_m = (experimentalData.velocity_ms * time_s)
     # distance_m = (experimentalData[velocity_ms] * time_s)
@@ -41,11 +46,11 @@ def projectileFunction(experimentalData: ExperimentalData):
 
 
 myDataSet = [
-ExperimentalData("Sword International Mk-18.338 LM Marksman Rifle", ".338", "Lapua Magnum TAC-X", 880, "Shanghai World Financial Center", 1614, 9.81),
-ExperimentalData("Sword International Mk-18.338 LM Marksman Rifle", ".338", "Lapua Magnum TAC-X", 880, "Central Park Tower", 1550, 9.81),
-ExperimentalData("Sword International Mk-18.338 LM Marksman Rifle", ".338", "Lapua Magnum TAC-X", 880, "Petronas Twin Towers", 1483, 9.81),
-ExperimentalData("Sword International Mk-18.338 LM Marksman Rifle", ".338", "Lapua Magnum TAC-X", 880, "KK100", 1449, 9.81),
-ExperimentalData("Sword International Mk-18.338 LM Marksman Rifle", ".338", "Lapua Magnum TAC-X", 880, "Empire State Building", 1250, 9.81)
+ExperimentalData("Sword International Mk-18.338 LM Marksman Rifle", ".338", "Lapua Magnum TAC-X", 880, "Shanghai World Financial Center", 1614, "Earth"),
+ExperimentalData("Sword International Mk-18.338 LM Marksman Rifle", ".338", "Lapua Magnum TAC-X", 880, "Central Park Tower", 1550, "Uranus"),
+ExperimentalData("Sword International Mk-18.338 LM Marksman Rifle", ".338", "Lapua Magnum TAC-X", 880, "Petronas Twin Towers", 1483, "Neptune"),
+ExperimentalData("Sword International Mk-18.338 LM Marksman Rifle", ".338", "Lapua Magnum TAC-X", 880, "KK100", 1449, "Saturn"),
+ExperimentalData("Sword International Mk-18.338 LM Marksman Rifle", ".338", "Lapua Magnum TAC-X", 880, "Empire State Building", 1250, "Mars")
 ]
 
 for data in myDataSet:
@@ -60,5 +65,13 @@ print(myOutputFilePath)
 
 with open(myOutputFilePath, 'w') as outfile:
     json.dump([data.__dict__ for data in myDataSet], outfile)
+
+#Deserialization
+deserialize = open(myOutputFilePath)
+experimentJson = json.load(deserialize)
+
+for e in experimentJson:
+    print("n\----------------------------------------------\n")
+    projectileFunction(ExperimentalData(**e))
 
 # projectileFunction(experimentalData)
