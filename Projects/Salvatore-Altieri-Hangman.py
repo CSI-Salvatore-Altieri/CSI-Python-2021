@@ -1,5 +1,5 @@
 import random
-word_list = ["Buenos Aires", "Brasília", "San Salvador", "Cayenne", "Sucre", "Bogotá", "Fort De France", "Caracas", "Santiago", "Basse Terre"]
+word_list = ["BuenosAires", "Brasília", "SanSalvador", "Cayenne", "Sucre", "Bogotá", "FortDeFrance", "Caracas", "Santiago", "BasseTerre"]
 
 def get_word(word_list):
     word = random.choice(word_list)
