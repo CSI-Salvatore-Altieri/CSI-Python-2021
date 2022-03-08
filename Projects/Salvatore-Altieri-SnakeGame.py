@@ -1,4 +1,6 @@
+from multiprocessing.sharedctypes import Value
 from random import random, randrange
+from ssl import VERIFY_ALLOW_PROXY_CERTS
 import time
 from tkinter import Y
 import pygame
@@ -25,6 +27,10 @@ clock = pygame.time.Clock()
 
 font_style = pygame.font.SysFont(None, 50)
 score_font = pygame.font.SysFont(None, 50)
+
+def My_Score(score):
+    value = score_font.render("Your score:" + str(score), True, red)
+    dis.blit(value, [0, 0])
 
 def our_snake(snake_block, snake_list):
     for x in snake_list:
@@ -104,9 +110,11 @@ def gameRestart():
 
         pygame.display.update()
 
+        My_Score(lenght_of_snake -1)
+
         if x1 == foodx and y1 == foody:
             foodx = round(random.randrange(0, dis_width - snake_block) / 10) *10 
-            foody = round(random.randrange(0, dis_width - snake_block) / 10) *10
+            foody = round(random.randrange(0, dis_height - snake_block) / 10) *10
             lenght_of_snake += 1 
 
         clock.tick(snake_speed)
