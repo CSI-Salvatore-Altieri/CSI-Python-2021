@@ -1,9 +1,5 @@
-from multiprocessing.sharedctypes import Value
-from random import random, randrange
-from ssl import VERIFY_ALLOW_PROXY_CERTS
-import time
-from tkinter import Y
 import pygame
+import time
 import random
 pygame.init()
 
@@ -54,13 +50,13 @@ def gameRestart():
     lenght_of_snake = 1
 
     foodx = round(random.randrange(0, dis_width - snake_block) / 10) *10 
-    foody = round(random.randrange(0, dis_width - snake_block) / 10) *10 
+    foody = round(random.randrange(0, dis_height - snake_block) / 10) *10 
 
     while not game_over:
 
         while game_close == True:
             dis.fill(black)
-            message("Game over, you're a Loser Press Q-Quit or P-Play Again")
+            message("Game over, you're a Loser Press Q-Quit or P-Play Again", red)
             pygame.display.update()
 
             for event in pygame.event.get():
@@ -108,9 +104,9 @@ def gameRestart():
         
         our_snake(snake_block, snake_list)
 
-        pygame.display.update()
-
         My_Score(lenght_of_snake -1)
+
+        pygame.display.update()
 
         if x1 == foodx and y1 == foody:
             foodx = round(random.randrange(0, dis_width - snake_block) / 10) *10 
